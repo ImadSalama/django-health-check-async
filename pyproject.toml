@@ -1,0 +1,37 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[project]
+name = "async-django-health-check"
+version = "0.1"
+description = "Async Django Health Check Library"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "django >= 4.0",
+]
+classifiers = [
+    "Development Status :: 6 - Mature",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+authors = [
+    {name= "Imadeddin Salama", email="ce.emad1999@gmail.com"},
+    {name= "Fares Abubaker", email="faris.abubaker15@gmail.com"},
+]
+
+[project.optional-dependencies]
+mysql = ["mysqlclient<3.0"]
+postgres = ["psycopg2<3.0"]
+aioboto3 = ["aioboto3>=13.3.0"]
+
+[project.urls]
+repository = "https://github.com/ImadSalama/django-health-check-async"
+
+[tool.setuptools.packages.find]
+where = ["src"]
