@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "async-django-health-check"
+version = "0.1.0"
+description = "Async Django Health Check Library"
+authors = [
+    "ImadSalama <ce.emad1999@gmail.com>",
+    "Fares-Abubaker <faris.abubaker15@gmail.com>"
+]
+license = "MIT License"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Internet",
+]
+repository = "https://github.com/ImadSalama/django-health-check-async"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = ">=4.0"
+
+[tool.poetry.group.dev.dependencies]
+sphinx = "^8.1.3"
+flake8 = "^7.1.1"
+black = "^24.10.0"
+isort = "^5.13.2"
+mypy = "^1.14.0"
+pylint = "^3.3.3"
+bandit = "^1.8.0"
+pydocstyle = "^6.3.0"
+pre-commit = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pydocstyle]
+convention = "numpy"
+ignore = ["D101", "D203"]
