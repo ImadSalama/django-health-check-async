@@ -16,10 +16,10 @@ class BaseService:
         self.errors = []
         self.time_taken = 0
 
-    def run_check(self):
+    async def run_check(self):
         start_time = timer()
         try:
-            self._run_check()
+            await self._run_check()
         except HealthCheckException as e:
             self.add_error(e, e)
         except BaseException:
@@ -28,7 +28,7 @@ class BaseService:
             self.time_taken = timer() - start_time
         return self
 
-    def _run_check(self):
+    async def _run_check(self):
         raise NotImplementedError("Run Check Is not Implemented in the Base Service")
 
     def add_error(self, error, cause=None):

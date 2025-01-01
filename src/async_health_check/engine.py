@@ -1,5 +1,6 @@
+from aiohttp import ClientSession
 from django.conf import settings
-
+import asyncio
 from async_health_check.constants import ServiceStatus
 from async_health_check.services.service_factory import ServiceFactory
 
@@ -27,8 +28,12 @@ class HealthCheckEngine:
         return self
 
     def run_checks(self):
-        for service in self.services:
-            service.run_check()
+        async def fetch_all():
+            async with ClientSession() as session:
+                tasks = [service.run_check() for service in self.services]
+                await asyncio.gather(*tasks)
+
+        asyncio.run(fetch_all())
         return self
 
     def retrieve_results(self):

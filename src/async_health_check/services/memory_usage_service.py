@@ -13,7 +13,7 @@ class MemoryUsageHealthCheck(BaseService):
         super(MemoryUsageHealthCheck, self).__init__(critical_service)
         self.memory_min = memory_min
 
-    def _run_check(self):
+    async def _run_check(self):
         try:
             memory = psutil.virtual_memory()
             host = socket.gethostname()

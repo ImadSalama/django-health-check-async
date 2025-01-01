@@ -13,7 +13,7 @@ class DiskUsageHealthCheck(BaseService):
         super(DiskUsageHealthCheck, self).__init__(critical_service)
         self.disk_usage_max = disk_usage_max
 
-    def _run_check(self):
+    async def _run_check(self):
         try:
             host = socket.gethostname()
             du = psutil.disk_usage("/")
