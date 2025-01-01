@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "async-django-health-check"
+name = "async-health-check"
 version = "0.1.0"
 description = "Async Django Health Check Library"
 authors = [
@@ -21,6 +21,9 @@ classifiers = [
     "Topic :: Internet",
 ]
 repository = "https://github.com/ImadSalama/django-health-check-async"
+packages = [
+    { include = "async_health_check", from = "src" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
