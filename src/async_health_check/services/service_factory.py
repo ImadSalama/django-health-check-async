@@ -1,12 +1,17 @@
+from async_health_check.constants import ServiceCodes
 from async_health_check.services.base_service import BaseService
+from async_health_check.services.cache_service import CacheHealthCheck
+from async_health_check.services.database_usage_service import DatabaseUsageHealthCheck
 from async_health_check.services.disk_usage_service import DiskUsageHealthCheck
 from async_health_check.services.memory_usage_service import MemoryUsageHealthCheck
 
 
 class ServiceFactory:
     SERVICE_MAP: dict[str, type(BaseService)] = {
-        "DISK_USAGE": DiskUsageHealthCheck,
-        "MEMORY_USAGE": MemoryUsageHealthCheck,
+        ServiceCodes.DISK_USAGE: DiskUsageHealthCheck,
+        ServiceCodes.MEMORY_USAGE: MemoryUsageHealthCheck,
+        ServiceCodes.DATABASE_USAGE: DatabaseUsageHealthCheck,
+        ServiceCodes.CACHE: CacheHealthCheck,
     }
 
     @staticmethod
